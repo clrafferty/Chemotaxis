@@ -29,19 +29,7 @@ void draw()
   }
   noStroke();
   sunx = mouseX;
-  //sun
-  pushMatrix();
-  translate(sunx, suny);
-  for (int i = 0; i < 10; i ++) {
-    fill(255, 154, 3);
-    triangle(-10, 20, 10, 20, 0, 35);
-    rotate(2*PI/10);
-  }
-  popMatrix();
-  fill(255, 221, 3);
-  ellipse(sunx, suny, 50, 50);
-
-  //end sun
+ sun(sunx,suny);
   growncount=0;
   for (int i = 0; i<50; i++) {
     kevin[i].show();
@@ -79,19 +67,7 @@ class Bacteria
     strokeWeight(6);
     line((float) x, (float) y, (float)x0, 800);
     noStroke();
-    pushMatrix();
-    translate((float)x, (float) y);
-    for (int i = 0; i < 20; i ++) {
-      fill(255, 221, 0);
-      strokeWeight(0.5);
-      stroke(255, 221, 0);
-      arc(0, 5, 5, 35, PI/2-.3, 3*PI/2-.3);
-      arc(0, 5, 5, 35, -PI/2-.3, PI/2-.3);
-      rotate(2*PI/20);
-    }
-    popMatrix();
-    fill(54, 41, 21);
-    ellipse((float)x, (float)y, 25, 25);
+    flower((float) x, (float) y);
   }
   void grow() {
     if (x<mouseX)
@@ -105,5 +81,33 @@ class Bacteria
     } else
       grown = true;
   }
+}
+void flower(float x,float y){
+  pushMatrix();
+    translate((float)x, (float) y);
+    for (int i = 0; i < 20; i ++) {
+      fill(255, 221, 0);
+      strokeWeight(0.5);
+      stroke(255, 221, 0);
+      arc(0, 5, 5, 35, PI/2-.3, 3*PI/2-.3);
+      arc(0, 5, 5, 35, -PI/2-.3, PI/2-.3);
+      rotate(2*PI/20);
+    }
+    popMatrix();
+    fill(54, 41, 21);
+    ellipse((float)x, (float)y, 25, 25);
+}
+void sun (float sunx , float suny){
+pushMatrix();
+  translate(sunx, suny);
+  for (int i = 0; i < 10; i ++) {
+    fill(255, 154, 3);
+    triangle(-10, 20, 10, 20, 0, 35);
+    rotate(2*PI/10);
+  }
+  popMatrix();
+  fill(255, 221, 3);
+  ellipse(sunx, suny, 50, 50);
+
 }
 
