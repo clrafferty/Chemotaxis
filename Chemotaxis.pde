@@ -2,8 +2,8 @@ Bacteria [] kevin = new Bacteria[50];
 float sunx = mouseX;
 float suny = 50 ; 
 int growncount = 0;
-float [] starx = new float[50];
-float [] stary = new float [50];
+int [] starx = new int[50];
+int [] stary = new int [50];
 
 void setup()   
 {     
@@ -12,8 +12,8 @@ void setup()
   for (int i = 0; i<50; i++)
     kevin[i]= new Bacteria();
   for (int i = 0; i < 50; i ++) {
-    starx[i] =(float)( Math.random()*800);
-    stary[i] =(float)( Math.random()*800);
+    starx[i] =(int)( Math.random()*800);
+    stary[i] =(int)( Math.random()*800);
   }
 }   
 void draw()   
@@ -114,15 +114,15 @@ void sunrise() {
     line(0, i, 800, i);
   }
 }
-void star(float sx, float sy) {
+void star(int sx, int sy) {
   noStroke();
-  float radop =(float)( Math.random()*10);
+  float radop =sx/80;
   pushMatrix();
-  fill(255, 255, 255, radop);
+  fill(255, 255, 255, radop+10);
   ellipse(sx, sy, radop, radop);
   popMatrix();
 }
-void sunset(float[]starsx, float[]starsy) {
+void sunset(int[]starsx, int[]starsy) {
   background(32, 26, 153);
   noStroke();
   for (int i = 0; i < 50; i++) {
@@ -136,4 +136,3 @@ void moon( float moonx, float moony) {
   fill(32, 26, 153);
   ellipse(moonx+20, moony, 40, 40);
 }
-
