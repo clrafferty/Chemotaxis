@@ -116,7 +116,7 @@ void sunrise() {
 }
 void star(int sx, int sy) {
   noStroke();
-  float radop =sx/800;
+  float radop =sx/80;
   pushMatrix();
   fill(255, 255, 255, radop+10);
   ellipse(sx, sy, radop, radop);
