@@ -4,24 +4,26 @@ float suny = 50 ;
 int growncount = 0;
 int [] starx = new int[50];
 int [] stary = new int [50];
+PImage img; 
 
 void setup()   
 {     
+	 img = loadImage("backgroundsunflowers.PNG");
   size(800, 800);
   background(255);
-  for (int i = 0; i<50; i++)
+  for (int i = 0; i<50; i++){
     kevin[i]= new Bacteria();
-  for (int i = 0; i < 50; i ++) {
     starx[i] =(int)( Math.random()*800);
     stary[i] =(int)( Math.random()*800);
   }
+
 }   
 void draw()   
 {    
   background(255);
   sunx = mouseX;
   if (growncount<25) {
-    sunrise();
+    image(img,0,0);
     sun(sunx, suny);
   } else {
     sunset(starx,stary);
@@ -107,16 +109,9 @@ void sun (float sunx, float suny) {
   fill(255, 221, 3);
   ellipse(sunx, suny, 50, 50);
 }
-void sunrise() {
-  for (int i = 0; i<800; i++)
-  {
-    stroke(81+i*164/800, 71+i*102/800, 255-i*189/800);
-    line(0, i, 800, i);
-  }
-}
 void star(int sx, int sy) {
   noStroke();
-  float radop =sx/80;
+  float radop =sx/800;
   pushMatrix();
   fill(255, 255, 255, radop+10);
   ellipse(sx, sy, radop, radop);
