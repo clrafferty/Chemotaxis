@@ -8,7 +8,7 @@ PImage img;
 
 void setup()   
 {     
-	 img = loadImage("backgroundsunflowers.PNG");
+	// img = loadImage("backgroundsunflowers.PNG");
   size(800, 800);
   background(255);
   for (int i = 0; i<50; i++){
@@ -23,7 +23,8 @@ void draw()
   background(255);
   sunx = mouseX;
   if (growncount<50) {
-    image(img,0,0);
+    //image(img,0,0);
+    background(201, 226, 255);
     sun(sunx, suny);
   } else {
     sunset(starx,stary);
