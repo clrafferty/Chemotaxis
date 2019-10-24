@@ -22,7 +22,7 @@ void draw()
 {    
   background(255);
   sunx = mouseX;
-  if (growncount<25) {
+  if (growncount<50) {
     image(img,0,0);
     sun(sunx, suny);
   } else {
@@ -111,9 +111,9 @@ void sun (float sunx, float suny) {
 }
 void star(int sx, int sy) {
   noStroke();
-  float radop =sx/800;
+  float radop =5;
   pushMatrix();
-  fill(255, 255, 255, radop+10);
+  fill(255, 255, 255, (float) (Math.random()*20)+20);
   ellipse(sx, sy, radop, radop);
   popMatrix();
 }
