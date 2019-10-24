@@ -1,9 +1,9 @@
-Bacteria [] kevin = new Bacteria[50];
+Bacteria [] kevin = new Bacteria[25];
 float sunx = mouseX;
 float suny = 50 ; 
 int growncount = 0;
-int [] starx = new int[50];
-int [] stary = new int [50];
+int [] starx = new int[25];
+int [] stary = new int [25];
 PImage img; 
 
 void setup()   
@@ -11,7 +11,7 @@ void setup()
 	// img = loadImage("backgroundsunflowers.PNG");
   size(800, 800);
   background(255);
-  for (int i = 0; i<50; i++){
+  for (int i = 0; i<25; i++){
     kevin[i]= new Bacteria();
     starx[i] =(int)( Math.random()*800);
     stary[i] =(int)( Math.random()*800);
@@ -22,7 +22,7 @@ void draw()
 {    
   background(255);
   sunx = mouseX;
-  if (growncount<50) {
+  if (growncount<25) {
     //image(img,0,0);
     background(201, 226, 255);
     sun(sunx, suny);
@@ -32,7 +32,7 @@ void draw()
   }
   noStroke();
   growncount=0;
-  for (int i = 0; i<50; i++) {
+  for (int i = 0; i<25; i++) {
     kevin[i].show();
     //    kevin[0].grn=color(255, 0, 0);
     kevin[i].grow();
