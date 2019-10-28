@@ -2,32 +2,31 @@ Bacteria [] kevin = new Bacteria[25];
 float sunx = mouseX;
 float suny = 50 ; 
 int growncount = 0;
-int [] starx = new int[25];
-int [] stary = new int [25];
+//int [] starx = new int[25];
+//int [] stary = new int [25];
 PImage img; 
 
 void setup()   
 {     
-	// img = loadImage("backgroundsunflowers.PNG");
+img = loadImage("backgroundsunflowers.PNG");
   size(800, 800);
-  background(255);
   for (int i = 0; i<25; i++){
     kevin[i]= new Bacteria();
-    starx[i] =(int)( Math.random()*800);
-    stary[i] =(int)( Math.random()*800);
+    //starx[i] =(int)( Math.random()*800);
+    //stary[i] =(int)( Math.random()*800);
   }
 
 }   
 void draw()   
 {    
-  background(255);
+	noStroke();
   sunx = mouseX;
   if (growncount<25) {
-    //image(img,0,0);
-    background(201, 226, 255);
+    image(img,0,0);
+   //background(201, 226, 255);
     sun(sunx, suny);
   } else {
-    sunset(starx,stary);
+    sunset();
     moon(sunx, suny);
   }
   noStroke();
@@ -57,7 +56,7 @@ class Bacteria
     max = (Math.random()*600)+120;
     rol=0;
     speedx = Math.random()*-0.4;
-    speedy =Math.random()* -2;
+    speedy =Math.random()* -1.5-.5;
     grown = false;
   }  
   void show() {
@@ -110,7 +109,7 @@ void sun (float sunx, float suny) {
   fill(255, 221, 3);
   ellipse(sunx, suny, 50, 50);
 }
-void star(int sx, int sy) {
+/*void star(int sx, int sy) {
   noStroke();
   float radop =5;
   pushMatrix();
@@ -118,12 +117,14 @@ void star(int sx, int sy) {
   ellipse(sx, sy, radop, radop);
   popMatrix();
 }
-void sunset(int[]starsx, int[]starsy) {
+*/
+void sunset() {
   background(32, 26, 153);
   noStroke();
-  for (int i = 0; i < 50; i++) {
+  /*for (int i = 0; i < 50; i++) {
     star(starsx[i], starsy[i]);
   }
+  */
 }
 void moon( float moonx, float moony) {
   fill(255);
